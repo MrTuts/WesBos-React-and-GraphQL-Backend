@@ -24,6 +24,7 @@
 
 - data types are defined in `schemas` folder
 - field config can have `isIndexed` prop, which should be set to true for fields that we use for search
+- schemas are visible in Keystone UI
 
 ##  14
 
