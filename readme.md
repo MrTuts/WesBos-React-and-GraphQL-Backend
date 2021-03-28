@@ -24,3 +24,7 @@
 
 - data types are defined in `schemas` folder
 - field config can have `isIndexed` prop, which should be set to true for fields that we use for search
+
+##  14
+
+- user session is configured using `createAuth` fn, following with setup in `config` using the `ui` and `session` props;
