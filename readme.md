@@ -1,5 +1,9 @@
 # Notes
 
+- MongoDB is our database
+- Database is located in MongoDB Atlas cloud (which uses AWS3 I think)
+- We use MongoDB Compass mac app to connect to the database
+
 ## 01 - 09
 
 - in frontend project
