@@ -1,6 +1,7 @@
 // make vars in .env available here
 import 'dotenv/config';
 import { config, createSchema } from '@keystone-next/keystone/schema';
+import { User } from './schemas/User';
 
 const databaseUrl =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits-tutorial';
@@ -27,6 +28,7 @@ export default config({
   // data types
   lists: createSchema({
     // Schema items go in here
+    User,
   }),
   // can people access the ui
   ui: {
