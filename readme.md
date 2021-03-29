@@ -29,3 +29,7 @@
 ##  14
 
 - user session is configured using `createAuth` fn, following with setup in `config` using the `ui` and `session` props;
+
+## 16
+
+- `cloudinary.com` for uploading images, it has support by keystone and we can create field to upload image, see `schemas/ProductImage.ts`
