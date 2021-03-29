@@ -37,3 +37,9 @@
 ##  17
 
 - created relationship between Product (see photo field) and ProductImage (see product field)
+
+## 18
+
+- Seed data by calling script `npm run seed-data`. Seeding is done in `keystone.ts` in config `db-> onConnect`
+- We can create seed data in `MongoDB Compass` by exporting the current content in db, eg going into `productImages` table and clicking `export collection` (icon right to the `ADD DATA`) -> `export full collection`.
+- I've uploaded the images to my own cloudinary and replaced them in `seed-data/data.ts`. Otherwise original seeded images don't show up in KeystoneJS because they are on wesbos account and that breaks it
