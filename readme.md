@@ -3,7 +3,7 @@
 - MongoDB is our database
 - Database is located in MongoDB Atlas cloud (which uses AWS3 I think)
 - We use MongoDB Compass mac app to connect to the database
-- (Probably) KeystoneJS is used to create the GraphQL API, viewing schemas, manipulating db data
+- KeystoneJS (CMS) is used to create the GraphQL API, viewing schemas, manipulating db data
 
 ## 01 - 09
 
@@ -33,3 +33,7 @@
 ## 16
 
 - `cloudinary.com` for uploading images, it has support by keystone and we can create field to upload image, see `schemas/ProductImage.ts`
+
+##  17
+
+- created relationship between Product (see photo field) and ProductImage (see product field)
