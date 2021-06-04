@@ -29,6 +29,12 @@ const { withAuth } = createAuth({
     fields: ['name', 'email', 'password'], // fields to fill to register
     // TODO: Add in initial roles here
   },
+  // activates the `sendUserPasswordResetLink` mutation
+  passwordResetLink: {
+    async sendToken(args) {
+      console.log(args);
+    },
+  },
 });
 
 export default withAuth(
