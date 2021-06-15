@@ -47,3 +47,7 @@
 ## 42
 
 - We are using `ethereal.email` to send reset password emails. Useful for development, all emails are kept in ethereal and are not sent to real users
+
+##  46
+
+- Create own grapqhl mutation schema in `mutations/*.ts`, which is used in `keystone.ts`. Mutation itself is in `mutations/addToCart.ts`
