@@ -51,3 +51,7 @@
 ##  46
 
 - Create own grapqhl mutation schema in `mutations/*.ts`, which is used in `keystone.ts`. Mutation itself is in `mutations/addToCart.ts`
+
+## 54
+
+- We can create virtual fields that do not have to be known to graphql, see `schemas/Order.ts`
