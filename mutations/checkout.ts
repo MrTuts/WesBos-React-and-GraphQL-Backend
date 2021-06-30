@@ -84,9 +84,33 @@ export default async function checkout(
     })
     .catch((err) => {
       console.log(err);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       throw new Error(err.message);
     });
-  // Convert the cartItems to OrderItems
 
-  // Create the order and return it
+  // Convert the cartItems to OrderItems
+  const orderItems = cartItems.map((cartItem) => ({
+    name: cartItem.product.name,
+    description: cartItem.product.description,
+    price: cartItem.product.price,
+    quantity: cartItem.quantity,
+    // relationship connection
+    photo: { connect: { id: cartItem.product.photo.id } },
+  }));
+
+  // Create the order
+  const order: OrderCreateInput = await context.lists.Order.createOne({
+    data: {
+      total: charge.amount,
+      charge: charge.id,
+      // create relationship to items. GraphQL first create orderItems, then connects them here
+      items: { create: orderItems },
+      user: { connect: { id: userId } },
+    },
+  });
+  // clean any old cart items
+  const cartItemIds = cartItems.map((cartItem) => cartItem.id);
+  await context.lists.CartItem.deleteMany({ ids: cartItemIds });
+
+  return order;
 }
