@@ -55,3 +55,7 @@
 ## 54
 
 - We can create virtual fields that do not have to be known to graphql, see `schemas/Order.ts`
+
+## 63
+
+- We can control access to data in schema files via the `access` prop. We can pass `boolean` or `function`, which gives us access to `session`, so we can give access or not based on some logic (depending on user's roles etc.)

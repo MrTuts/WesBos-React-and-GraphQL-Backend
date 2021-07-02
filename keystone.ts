@@ -16,6 +16,7 @@ import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations';
+import { permissionsList } from './schemas/fields';
 
 const databaseUrl =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits-tutorial';
@@ -81,7 +82,8 @@ export default withAuth(
     },
     session: withItemData(statelessSessions(sessionConfig), {
       // GraphQL query
-      User: 'id', // pass the id with every request
+      // pass following values with every request, these values can be accessed via `session` prop
+      User: `id name email role { ${permissionsList.join(' ')} }`,
     }),
     // TODO: Add session values
   })
