@@ -10,6 +10,7 @@ import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { OrderItem } from './schemas/OrderItem';
 import { Order } from './schemas/Order';
+import { Role } from './schemas/Role';
 import { CartItem } from './schemas/CartItem';
 import { ProductImage } from './schemas/ProductImage';
 import { insertSeedData } from './seed-data';
@@ -69,6 +70,7 @@ export default withAuth(
       CartItem,
       OrderItem,
       Order,
+      Role,
     }),
     // custom graphql schemas
     extendGraphqlSchema,
