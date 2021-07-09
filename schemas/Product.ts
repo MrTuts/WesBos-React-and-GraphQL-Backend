@@ -1,14 +1,14 @@
 import { integer, relationship, select, text } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
-import { isSignedIn } from '../access';
+import { isSignedIn, rules } from '../access';
+import { ListAccessArgs } from '../types';
 
 export const Product = list({
   access: {
-    // TODO: change access control
     create: isSignedIn,
-    read: isSignedIn, // true for all
-    update: isSignedIn, // only owner
-    delete: isSignedIn, // only owner
+    read: rules.canReadProducts,
+    update: rules.canManageProducts,
+    delete: rules.canManageProducts,
   },
   fields: {
     name: text({ isRequired: true }),
@@ -39,5 +39,11 @@ export const Product = list({
       },
     }),
     price: integer(),
+    user: relationship({
+      ref: 'User.products',
+      defaultValue: ({ context }) => ({
+        connect: { id: context.session.itemId },
+      }),
+    }),
   },
 });

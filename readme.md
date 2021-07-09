@@ -59,3 +59,7 @@
 ## 63
 
 - We can control access to data in schema files via the `access` prop. We can pass `boolean` or `function`, which gives us access to `session`, so we can give access or not based on some logic (depending on user's roles etc.)
+
+##  64, 65
+
+- Managing access based on rules and logged in user in `access.ts` and `access` fields in individual `schemas` (only `schemas/Product.ts` up to this point)
