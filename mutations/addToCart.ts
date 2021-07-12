@@ -25,14 +25,12 @@ export default async function addToCart(
       resolveFields: 'id,quantity',
     }
   );
-  console.log(allCartItems);
 
   // See if the current item is in their cart
   const [existingCartItem] = allCartItems;
 
   // if it is is, increment by 1
   if (existingCartItem) {
-    console.log(`was ${existingCartItem.quantity}, increment by 1`);
     return (await context.lists.CartItem.updateOne({
       id: existingCartItem.id,
       data: { quantity: existingCartItem.quantity + 1 },
